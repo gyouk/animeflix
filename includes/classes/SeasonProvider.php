@@ -36,23 +36,28 @@ class SeasonProvider {
 
 	}
 
-	private function createVideoSquare($video){
+	private function createVideoSquare($video) {
 		$id = $video->getId();
 		$thumbnail = $video->getThumbnail();
 		$name = $video->getTitle();
 		$description = $video->getDescription();
 		$episodeNumber = $video->getEpisodeNumber();
-
+		$hasSeen = $video->hasSeen($this->username) ? "<i class=' fa-solid fa-circle-check seen '></i>" : "";
+		var_dump($video->hasSeen($this->username));
+		var_dump($hasSeen);
 		return "<a href='watch.php?id=$id'>
 					<div class='episodeContainer'>
 						<div class='contents'>
 						
-							<img src='$thumbnail'>
+							<img src='$thumbnail' alt='thumbnail'>
 							
 							<div class='videoInfo'>
 								<h4>$episodeNumber. $name</h4>
 								<span>$description</span>
 							</div>
+						
+							$hasSeen
+							
 						</div>
 					</div>
 				</a>";
