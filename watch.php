@@ -9,7 +9,6 @@ $video = new Video( $connecting_db, $_GET['id']);
 $video->incrementViews();
 
 $video_id = $video->getId();
-
 $video_title = $video->getTitle();
 $video_links = $video->getFilePath();
 
@@ -26,5 +25,5 @@ $video_links = $video->getFilePath();
 	</video>
 </div>
 <script>
-    initVideo("<?php echo $video_id?>", "<?php echo $userLoggedIn;?>");
+    initVideo("<?php echo $video_id;?>", "<?php echo $userLoggedIn;?>");
 </script>
